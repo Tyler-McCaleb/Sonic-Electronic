@@ -1,3 +1,6 @@
+
+<!-- Destroys the database off of the MySQL server -->
+
 <?php
 
 

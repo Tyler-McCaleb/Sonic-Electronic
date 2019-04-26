@@ -1,3 +1,6 @@
+
+<!-- Creates the database on the MySQL server based on the information stored in init.sql -->
+
 <?php
 
 

@@ -17,14 +17,15 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the querery
-    $sql = "SELECT 'desired information'
-    FROM 'table name'
-    WHERE 'conditions'"
+    $sql = "SELECT name, SUM(p.price * sh.quantity) AS totalPurchase
+    FROM customer c
+    LEFT JOIN shipper sh ON sh.transaction_id = p.transaction_id
+    LEFT JOIN package p ON p.package_id = sh.id
+    GROUP BY c.customer_id";
             
 
     // Prepare the statement
     $statement = $connection->prepare($sql);
-    $statement->bindParam(':location', $location, PDO::PARAM_STR); // bind :location in the query to the variable $location  (Just an example to show binding parameter, may not be needed in actual code)
     $statement->execute();    // execute the statement
 
     // save all the data from the statemet into the result
@@ -36,8 +37,30 @@ catch(PDOException $error)
 {
     echo $sql . "<br>" . $error->getMessage();
 }
-
 ?>
+
+
+
+<?php
+    if ($result && $statement->rowCount() > 0) { ?>
+        <h2>Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($result as $row) { ?>
+                    <tr>
+                        <td><?php echo escape($row["name"]); ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <?php } else { ?>
+            > No Customer Found
+        <?php } ?>
 
 
 <?php include "templates/footer.php"; ?>
