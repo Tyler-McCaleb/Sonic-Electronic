@@ -1,4 +1,4 @@
-<!-- Contains user, host, and database settings for a connection to Xampp's MySQL server using default settings for Xampp root user.
+<!-- Contains user, host, and database settings for a connection to Xampp's MySQL server using default settings for Xampp root user. -->
 
 <?php
 
@@ -9,4 +9,3 @@ $dbname     = "SonicDB";
 $dsn        = "mysql:host=$host;dbname=$dbname";
 $options    = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
->?
