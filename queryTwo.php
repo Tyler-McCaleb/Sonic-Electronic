@@ -16,10 +16,10 @@ try
     // Set up connection
     $connection = new PDO($dsn, $username, $password, $options);
 
-    // create the querery
-    $sql = "SELECT name, SUM(p.price * sh.quantity) AS totalPurchase
+    // create the query
+    $sql = "SELECT customer_name, SUM(p.price * sh.quantity) AS totalPurchase
     FROM customer c
-    LEFT JOIN shipper sh ON sh.transaction_id = p.transaction_id
+    LEFT JOIN shipper sh ON sh.transaction_number = p.transaction_number
     LEFT JOIN package p ON p.package_id = sh.id
     GROUP BY c.customer_id";
             
@@ -53,7 +53,7 @@ catch(PDOException $error)
             <tbody>
                 <?php foreach ($result as $row) { ?>
                     <tr>
-                        <td><?php echo escape($row["name"]); ?></td>
+                        <td><?php echo escape($row["customer_name"]); ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
