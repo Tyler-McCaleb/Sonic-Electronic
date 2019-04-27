@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   use SonicDB;
 
   CREATE TABLE SonicDB.manufacturer (
-    manufacturer_id      INT(5) NOT NULL,
+    manufacturer_id     INT(5) NOT NULL,
     manufacturer_name   VARCHAR(30),
     sales               VARCHAR(30),
     PRIMARY KEY (manufacturer_id)
@@ -24,13 +24,14 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     package_id          INT(5) NOT NULL,
     quantity            INT(5),
     price               DECIMAL(5,2),
+    product_name        VARCHAR(30),
     PRIMARY KEY (item_id)
   );
 
   CREATE TABLE SonicDB.package(
-    package_id        INT(5) NOT NULL,
-    price             DECIMAL(5,2),
-    transaction_number    INT(5) NOT NULL,
+    package_id          INT(5) NOT NULL,
+    price               DECIMAL(5,2),
+    transaction_number  INT(5) NOT NULL,
     PRIMARY KEY (package_id)
   );
 
@@ -115,6 +116,28 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   VALUES (10003, 'Dell', "Stuff Installed you no need");
   
   INSERT INTO SonicDB.manufacturer(manufacturer_id, manufacturer_name, sales)
-  VALUES (10001, 'Acer', 'It is kinda alright');
+  VALUES (10004, 'Acer', 'It is kinda alright');
+  
+  /*Products*/
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10001, 20001, 30001, 100000, 100.0, 'Television');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10002, 20002, 30002, 5, 100.0, 'Ipad');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10003, 20003, 30003, 4, 400.0, 'Personal Computer');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10004, 20004, 30004, 3, 300.0, 'USB Cable');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10005, 20005, 30005, 2, 200.0, 'Speaker');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10006, 20006, 30006, 1, 100.0, 'Keyboard');
+  
+  INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
+  VALUES (10007, 20007, 30007, 0, 600.0, 'Headset');
   
 

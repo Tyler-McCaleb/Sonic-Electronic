@@ -1,5 +1,5 @@
 
-<!-- Destroys the database off of the MySQL server -->
+<!-- Destroys the database from the MySQL server -->
 
 <?php
 
