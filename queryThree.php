@@ -17,7 +17,8 @@ try
 
     // create the query
     $sql = "SELECT item_id, product_name, sum(quantity*price)
-    FROM product GROUP BY item_id
+    FROM product
+    GROUP BY item_id
     ORDER BY SUM(quantity * price) desc
     LIMIT 2";
 

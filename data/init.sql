@@ -29,14 +29,14 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   );
 
   CREATE TABLE SonicDB.package(
-    package_id          INT(5) NOT NULL,
+    package_id          INT(6) NOT NULL,
     price               DECIMAL(5,2),
     transaction_number  INT(5) NOT NULL,
     PRIMARY KEY (package_id)
   );
 
   CREATE TABLE SonicDB.customer(
-    email             VARCHAR(30),
+    email             VARCHAR(30) NOT NULL,
     customer_name     VARCHAR(30),
     customer_address  VARCHAR(30),
     phone             INT(10),
@@ -55,7 +55,7 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
 
   /********************************** RELATIONAL TABLES ********************/
   CREATE TABLE SonicDB.stocks(
-    manufacturer_id    INT(5) NOT NULL,
+    manufacturer_id       INT(5) NOT NULL,
     transaction_number    INT(5) NOT NULL,
     PRIMARY KEY (manufacturer_id, transaction_number),
     FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(manufacturer_id),
@@ -91,6 +91,14 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     FOREIGN KEY (item_id) REFERENCES product (item_id)
   );
   
+  CREATE TABLE SonicDB.receives(
+    package_id          INT(5) NOT NULL,
+    email               VARCHAR(30) NOT NULL,
+    PRIMARY KEY (package_id, email),
+    FOREIGN KEY (package_id) REFERENCES package (package_id),
+    FOREIGN KEY (email) REFERENCES customer(email)
+  );
+  
   /***** ADD INFORMATION TO THE DATABASE (Just test data currently) **************/
   /* Customers */
   INSERT INTO SonicDB.customer(email, customer_name, customer_address, phone)
@@ -120,24 +128,28 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   
   /*Products*/
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10001, 20001, 30001, 100000, 100.0, 'Television');
+  VALUES (10001, 20001, 30001, 100000, 100.00, 'Television');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10002, 20002, 30002, 5, 100.0, 'Ipad');
+  VALUES (10002, 20002, 30002, 5, 100.00, 'Ipad');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10003, 20003, 30003, 4, 400.0, 'Personal Computer');
+  VALUES (10003, 20003, 30003, 4, 400.00, 'Personal Computer');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10004, 20004, 30004, 3, 300.0, 'USB Cable');
+  VALUES (10004, 20004, 30004, 3, 300.00, 'USB Cable');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10005, 20005, 30005, 2, 200.0, 'Speaker');
+  VALUES (10005, 20005, 30005, 2, 200.00, 'Speaker');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10006, 20006, 30006, 1, 100.0, 'Keyboard');
+  VALUES (10006, 20006, 30006, 1, 100.00, 'Keyboard');
   
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
-  VALUES (10007, 20007, 30007, 0, 600.0, 'Headset');
+  VALUES (10007, 20007, 30007, 0, 600.00, 'Headset');
+  
+  /* Packages */
+  INSERT INTO SonicDB.package (package_id, price, transaction_number)
+  VALUES (123456, 400.00, 40001);
   
 
