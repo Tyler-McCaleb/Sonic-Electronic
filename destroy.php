@@ -8,10 +8,10 @@ require "config.php";
 
 try {
 $connection = new PDO("mysql:host=$host", $username, $password, $options);
-$sql = 'DROP DATABASE ' . $dbname;
+$sql = 'DROP DATABASE IF EXISTS ' . $dbname;
 $connection->exec($sql);
 
-echo "Database and table users deleted successfully.";
+echo "$dbname and related tables were deleted successfully.";
 
 } catch(PDOException $error){
     echo $sql . "<br>" . $error->getMessage();
@@ -19,4 +19,6 @@ echo "Database and table users deleted successfully.";
 
 ?>
 
-<?php include "templates/footer.php"; ?>
+<div>
+    <?php include "templates/footer.php"; ?>
+</div>

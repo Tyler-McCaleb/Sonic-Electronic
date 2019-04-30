@@ -32,6 +32,7 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     package_id          INT(6) NOT NULL,
     price               DECIMAL(5,2),
     transaction_number  INT(5) NOT NULL,
+    email               VARCHAR(30),
     PRIMARY KEY (package_id)
   );
 
@@ -39,7 +40,8 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     email             VARCHAR(30) NOT NULL,
     customer_name     VARCHAR(30),
     customer_address  VARCHAR(30),
-    phone             INT(10),
+    phone             BIGINT,
+    package_id        INT(5),
     PRIMARY KEY (email)
   );
 
@@ -58,16 +60,16 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     manufacturer_id       INT(5) NOT NULL,
     transaction_number    INT(5) NOT NULL,
     PRIMARY KEY (manufacturer_id, transaction_number),
-    FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(manufacturer_id),
-    FOREIGN KEY (transaction_number) REFERENCES shipper(transaction_number)
+    FOREIGN KEY (manufacturer_id) REFERENCES SonicDB.manufacturer(manufacturer_id),
+    FOREIGN KEY (transaction_number) REFERENCES SonicDB.shipper(transaction_number)
   );
 
   CREATE TABLE SonicDB.ships(
     transaction_number  INT(5) NOT NULL,
     package_id          INT(5) NOT NULL,
     PRIMARY KEY (transaction_number, package_id),
-    FOREIGN KEY (transaction_number) REFERENCES shipper (transaction_number),
-    FOREIGN KEY (package_id) REFERENCES package (package_id)
+    FOREIGN KEY (transaction_number) REFERENCES SonicDB.shipper (transaction_number),
+    FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id)
   );
 
   CREATE TABLE SonicDB.tracks(
@@ -79,24 +81,24 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     package_id          INT(5) NOT NULL,
     manufacturer_id     INT(5) NOT NULL,
     PRIMARY KEY (package_id, manufacturer_id),
-    FOREIGN KEY (package_id) REFERENCES package (package_id),
-    FOREIGN KEY (manufacturer_id) REFERENCES manufacturer (manufacturer_id)
+    FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id),
+    FOREIGN KEY (manufacturer_id) REFERENCES SonicDB.manufacturer (manufacturer_id)
   );
 
   CREATE TABLE SonicDB.contents(
     package_id          INT(5) NOT NULL,
     item_id             INT(5) NOT NULL,
     PRIMARY KEY (package_id, item_id),
-    FOREIGN KEY (package_id) REFERENCES package (package_id),
-    FOREIGN KEY (item_id) REFERENCES product (item_id)
+    FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id),
+    FOREIGN KEY (item_id) REFERENCES SonicDB.product (item_id)
   );
   
   CREATE TABLE SonicDB.receives(
     package_id          INT(5) NOT NULL,
     email               VARCHAR(30) NOT NULL,
     PRIMARY KEY (package_id, email),
-    FOREIGN KEY (package_id) REFERENCES package (package_id),
-    FOREIGN KEY (email) REFERENCES customer(email)
+    FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id),
+    FOREIGN KEY (email) REFERENCES SonicDB.customer(email)
   );
   
   /***** ADD INFORMATION TO THE DATABASE (Just test data currently) **************/
@@ -148,8 +150,15 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   INSERT INTO SonicDB.product(manufacturer_id, item_id, package_id, quantity, price, product_name)
   VALUES (10007, 20007, 30007, 0, 600.00, 'Headset');
   
+  
+  
+  /**************** Testing **************************/
   /* Packages */
   INSERT INTO SonicDB.package (package_id, price, transaction_number)
   VALUES (123456, 400.00, 40001);
+  
+  /* Receives */
+  INSERT INTO SonicDB.receives (package_id, email)
+  VALUES (123456, 'Jane@gmail.com');
   
 
