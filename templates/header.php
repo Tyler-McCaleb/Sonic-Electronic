@@ -27,7 +27,7 @@
     
     <h1 style= "font-size: 20px";> Sonic Electronics </h1>
     
-    <h2 style= "font-family:helvetica; color:white; font-size: 27px;"><center><i>The World's Leading Technology Store</i></center></h2>
+    <h2 style= "font-family:helvetica; color:white; font-size: 27px;"><center><i>"The World's Leading Technology Store"</i></center></h2>
     
     
 
