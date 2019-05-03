@@ -4,7 +4,7 @@
 <?php
 
 /*
-  Find those products that are out-of-stock at ever store in california
+  Find those products that are out-of-stock at every store in california
 */
 
 try 
