@@ -25,7 +25,7 @@
 
 <img src="https://www.logolynx.com/images/logolynx/56/569a9c6f670baae2a9be83ef3a8a3364.png" style="height: 125px; width: 175px;">
     
-    <h1> Sonic Electronics </h1>
+    <h1 style= "font-size: 20px";> Sonic Electronics </h1>
     
     <h2 style= "font-family:helvetica; color:white; font-size: 27px;"><center><i>The World's Leading Technology Store</i></center></h2>
     
