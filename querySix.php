@@ -50,7 +50,7 @@ catch(PDOException $error)
                     <tr>
                         <?php
                         $due = new DateTime(escape($row["due_date"]));
-                        $received = new DateTime(escape($row["received_date"]));                         
+                        $received = new DateTime(escape($row["receive_date"]));                         
                         ?>
                         <?php if ($received > $due) { ?>
                         <td><?php echo escape($row["package_id"]); ?></td>
