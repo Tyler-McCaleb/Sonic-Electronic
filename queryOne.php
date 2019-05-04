@@ -1,7 +1,9 @@
 
 <?php include "templates/header.php"; ?>
 
-
+<head>
+   <link rel="stylesheet" href="css/style.css">
+</head>
 
 <!--
     Assume the package shipped by USPS with tracking number 123456
@@ -84,8 +86,6 @@ try
         $statement->execute();
         
         
-        //*************************** WORKING ****************************
-        
         // Delete the relation between the old package and the customer
         $sql_deleteReceives = "DELETE FROM SonicDB.receives
         WHERE (package_id = ";
@@ -151,60 +151,64 @@ try
         // Display The Old and New Information
         if ($customer && $statement->rowCount() > 0) 
         { ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Customer Information</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($customer as $row) { ?>
-                    <tr>
-                        <td><?php echo escape($row["customer_name"]); ?></td>
-                        <td><?php echo escape($row["customer_address"]); ?></td>
-                        <td><?php echo escape($row["email"]); ?></td>
-                        <td><?php echo escape($row["phone"]); ?></td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
+            <h3>Customer Information:</h3>
+            <table id="resultTable">
+                <tr>
+                    <th id="resultHeader">Name:</th>
+                    <th id="resultHeader">Address:</th>
+                    <th id="resultHeader">Email:</th>
+                    <th id="resultHeader">Phone Number:</th>
+                </tr>
+                
+                <?php foreach ($customer as $row) { ?>
+                <tr>
+                    <td id="resultData"><?php echo escape($row["customer_name"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["customer_address"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["email"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["phone"]); ?></td>
+                </tr>
+                <?php } ?>
             </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Original Package Information</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($old_package as $row) { ?>
-                    <tr>
-                        <td><?php echo escape($row["package_id"]); ?></td>
-                        <td><?php echo escape($row["price"]); ?></td>
-                        <td><?php echo escape($row["transaction_number"]); ?></td>
-                        <td><?php echo escape($row["receive_date"]); ?></td>
-                        <td><?php echo escape($row["due_date"]); ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
+            <h3>Original Package Information:</h3>
+            <table id="resultTable">
+                <tr>
+                    <th id="resultHeader">ID:</th>
+                    <th id="resultHeader">Price:</th>
+                    <th id="resultHeader">Transaction:</th>
+                    <th id="resultHeader">Received:</th>
+                    <th id="resultHeader">Due:</th>
+                </tr>
+                
+                <?php foreach ($old_package as $row) { ?>
+                <tr>
+                    <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["price"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["transaction_number"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["receive_date"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["due_date"]); ?></td>
+                </tr>
+                <?php } ?>
             </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>New Package Information</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($new_package as $row) { ?>
-                    <tr>
-                        <td><?php echo escape($row["package_id"]); ?></td>
-                        <td><?php echo escape($row["price"]); ?></td>
-                        <td><?php echo escape($row["transaction_number"]); ?></td>
-                        <td><?php echo escape($row["receive_date"]); ?></td>
-                        <td><?php echo escape($row["due_date"]); ?></td>
-                     </tr>
-                    <?php } ?>
-                </tbody>
+            <h3>New Package Information:</h3>
+            <table id="resultTable">
+                <tr>
+                    <th id="resultHeader">ID:</th>
+                    <th id="resultHeader">Price:</th>
+                    <th id="resultHeader">Transaction:</th>
+                    <th id="resultHeader">Received:</th>
+                    <th id="resultHeader">Due:</th>
+                </tr>
+                <?php foreach ($new_package as $row) { ?>
+                <tr>
+                    <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["price"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["transaction_number"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["receive_date"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["due_date"]); ?></td>
+                </tr>
+                <?php } ?>
             </table>
 
         <?php } ?> 
@@ -214,7 +218,7 @@ try
         
         
         <form method="post">
-	    <label for="package_id">Destroyed Package ID Number</label>
+	    <label for="package_id"><strong>Enter Destroyed Package ID Number</strong></label>
             <input type="text" name="package_id" id="package_id">
 
     	    <input type="submit" name="submit" value="Submit">
@@ -232,19 +236,13 @@ try
 ?>
 
         <!-- Display all of the packages -->
-        <table>
-            <thead>
+        <h3>All Package ID's</h3>
+        <table id="resultTable">
+            <?php foreach ($result as $row){ ?>
                 <tr>
-                    <th>Package ID's</th>
+                    <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row){ ?>
-                    <tr>
-                        <td><?php echo escape($row["package_id"]); ?></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
+            <?php } ?>
         </table> 
 <?php } ?>
 
@@ -253,5 +251,5 @@ try
             
            echo $sql . "<br>" . $error->getMessage();
         } ?>
-
+<div padding=20px>  </div>
 <?php include "templates/footer.php"; ?>

@@ -220,3 +220,53 @@ td a:link{
   color: #37474F;
 }
 
+table#resultTable
+{
+    border-spacing: 15px;
+    width: 50%;
+}
+
+#resultHeader
+{
+    padding: 5px;
+    text-align: center;
+}
+
+#resultData
+{
+    padding: 5px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

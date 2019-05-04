@@ -1,5 +1,8 @@
 
 <?php include "templates/header.php"; ?>
+<head>
+   <link rel="stylesheet" href="css/style.css">
+</head>
 
 <?php
 
@@ -16,10 +19,10 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the query
-    $sql = "SELECT item_id, product_name, sum(quantity*price)
+    $sql = "SELECT item_id, product_name, sum(quantity*price) as total
     FROM product
     GROUP BY item_id
-    ORDER BY SUM(quantity * price) desc
+    ORDER BY total desc
     LIMIT 2";
 
 
@@ -43,20 +46,20 @@ catch(PDOException $error)
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
         <h2>Product ID's of the Top 2 Products Sold by Dollar Amount:</h2>
-        <table>
-            <thead>
+        <h3>Product Information</h3>
+        <table id="resultTable">
+            <tr>
+                <th id="resultHeader">ID</th>
+                <th id="resultHeader">Name</th>
+                <th id="resultHeader">Total</th>
+            </tr>
+            <?php foreach ($result as $row) { ?>
                 <tr>
-                    <th>Results:</th>
+                    <td id="resultData"><?php echo escape($row["item_id"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["product_name"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["total"]); ?></td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row) { ?>
-                    <tr>
-                        <td><?php echo escape($row["item_id"]); ?></td>
-                        <td><?php echo escape($row["product_name"]); ?></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
+             <?php } ?>
         </table>
         <?php } else { ?>
             > No Items Found

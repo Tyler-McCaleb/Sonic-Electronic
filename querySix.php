@@ -1,5 +1,9 @@
 
 <?php include "templates/header.php"; ?>
+<head>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
 
 <?php
 
@@ -39,27 +43,26 @@ catch(PDOException $error)
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
         <h2>Products that were not delivered on time</h2>
-        <table>
-            <thead>
+        <h3>Package Information</h3>
+        <table id="resultTable">
+            <tr>
+                <th id="resultHeader">ID</th>
+                <th id="resultheader">Price</th>
+                <th id="resultHeader">Transaction #</th>
+            </tr>
+            <?php foreach ($result as $row) { ?>
                 <tr>
-                    <th>Results:</th>
+                    <?php
+                    $due = new DateTime(escape($row["due_date"]));
+                    $received = new DateTime(escape($row["receive_date"]));                         
+                    ?>
+                    <?php if ($received > $due) { ?>
+                    <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["price"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["transaction_number"]); ?></td>
+                    <?php } ?>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $row) { ?>
-                    <tr>
-                        <?php
-                        $due = new DateTime(escape($row["due_date"]));
-                        $received = new DateTime(escape($row["receive_date"]));                         
-                        ?>
-                        <?php if ($received > $due) { ?>
-                        <td><?php echo escape($row["package_id"]); ?></td>
-                        <td><?php echo escape($row["price"]); ?></td>
-                        <td><?php echo escape($row["transaction_number"]); ?></td>
-                        <?php } ?>
-                    </tr>
-                <?php } ?>
-            </tbody>
+            <?php } ?>
         </table>
         <?php } else { ?>
             > No Packages were delivered after the due date.
