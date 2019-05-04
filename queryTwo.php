@@ -17,11 +17,10 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the query
-    $sql = "SELECT customer_name, SUM(p.price * sh.quantity) AS totalPurchase
-    FROM customer c
-    LEFT JOIN shipper sh ON sh.transaction_number = p.transaction_number
-    LEFT JOIN package p ON p.package_id = sh.id
-    GROUP BY c.customer_id";
+    $sql = "SELECT customer_name
+    FROM customer, package
+    ORDER BY price desc
+    LIMIT 1";
             
 
     // Prepare the statement
@@ -43,7 +42,7 @@ catch(PDOException $error)
 
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Results</h2>
+        <h2>Customer with the Highest Amount Spent</h2>
         <table>
             <thead>
                 <tr>
