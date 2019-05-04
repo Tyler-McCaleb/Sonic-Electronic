@@ -1,214 +1,12 @@
 <?php include "templates/header.php"; ?>
 
-<style type="text/css">      
-{box-sizing: border-box;}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-      
-      
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #1A237E;
-  float: none;
-  text-align:center;
-}
-      
-      
-li {
-  display:inline;
-}
-
-      
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-      
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: black;
-}
-
-      
-li.dropdown {
-  display: inline-block;
-}
-
-      
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: gray;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-      
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-      
-.dropdown-content a:hover {
-  background-color: black
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-
-}
-
-* {
-  box-sizing: border-box;
-}
-
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid #01579B;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  
-}
-
-form.example button {
-  float: left;
-  width: 15%;
-  padding: 10px;
-  background: #1A237E;
-  color: white;
-  font-size: 17px;
-  border: 1px solid #01579B;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: black;
-}
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}   
-   .dropdown-centered a {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-}
-
-    .pull-right {
-    float: right;
-}     
-
-
-.footer {
-   position: relative;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   height: 70%;
-   background-color: #01579B;
-   color: white;
-   text-align: center;
-}
-
-a:link {
-  color: white;
-}
-
-.btn {
-  background-color: #01579B;
-  border: none;
-  color: black;
-  padding: 0px 10px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #01579B;
-  color: white
-}
-
-body {margin:0;}
-
-.icon-bar {
-  width: 80%;
-  background-color: navy;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  float: none;
-  text-align:center;
-  margin: auto;
-  justify-content: center;
-}
-
-.icon-bar a{
-  float: left;
-  width: 20%;
-  text-align: center;
-  padding: 12px 0;
-  transition: all 0.3s ease;
-  color: white;
-  font-size: 40px;
-  
-}
-
-.icon-bar a:hover {
-  background-color: #000;
-}
-
-.active {
-  background-color: navy;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 30%;
-  background-color: white;
-}
-
-td, th {
-  border: 5px solid DarkBlue;
-  text-align: center;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: white;
-}
-
-td a:link{
-  color: #37474F;
-}
-</style>
-
-
-
 <html>
   <head>
 
+      <link rel = "stylesheet" href = "css/style.css">
+    </head>
+      
+    <body>
     <ul>
      <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Products</a>
@@ -417,8 +215,7 @@ td a:link{
 <button class="btn"><i class="fab fa-facebook"></i></button><button class="btn"><i class="fab fa-twitter-square"></i></button>
     </div>
     
-</body>
-</html>
+
 
 <h1>Database Controls</h1>
 <ul>
@@ -457,5 +254,7 @@ td a:link{
 </ul>
      
 
+</body>
+</html>
 
 <?php include "templates/footer.php"; ?>
