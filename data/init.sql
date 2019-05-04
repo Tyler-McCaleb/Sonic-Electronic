@@ -48,10 +48,11 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   );
 
   CREATE TABLE SonicDB.inventory(
-    store_number      INT(5) NOT NULL,
+    store_number      INT(5) NOT NULL AUTO_INCREMENT,
     product_category  VARCHAR(30),
     season            VARCHAR(30),
     region            VARCHAR(30),
+    item_id           INT(5) NOT NULL,
     PRIMARY KEY (store_number)
   );
 
@@ -353,65 +354,65 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
   
 
 /* Inventory */
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (1, 20001, 'TV', 'Winter', 'Mississippi');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20001, 'TV', 'Winter', 'Mississippi');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (2, 20002, 'Tablet', 'Fall', 'Alabama');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20002, 'Tablet', 'Fall', 'Alabama');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (3, 20003, 'Computer', 'Spring', 'Lousiana');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20003, 'Computer', 'Spring', 'Lousiana');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (4, 20004, 'Computer', 'Summer', 'California');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20004, 'Computer', 'Summer', 'California');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (5, 20005, 'Home Theatre', 'Winter', 'New York');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20005, 'Home Theatre', 'Winter', 'New York');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (1, 20006, 'Computer', 'Fall', 'Mississippi');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20006, 'Computer', 'Fall', 'Mississippi');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (2, 23637, 'Tablet', 'Spring', 'Alabama');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (23637, 'Tablet', 'Spring', 'Alabama');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (3, 22427, 'Computer', 'Summer', 'Lousiana');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (22427, 'Computer', 'Summer', 'Lousiana');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (4, 25407, 'Computer', 'Winter', 'California');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (25407, 'Computer', 'Winter', 'California');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (5, 13007, 'Other', 'Fall', 'New York');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (13007, 'Other', 'Fall', 'New York');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (1, 29897, 'Computer', 'Spring', 'Mississippi');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (29897, 'Computer', 'Spring', 'Mississippi');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (2, 29997, 'Computer', 'Summer', 'Alabama');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (29997, 'Computer', 'Summer', 'Alabama');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (3, 20078, 'Other', 'Winter', 'Lousiana');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20078, 'Other', 'Winter', 'Lousiana');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (4, 20022, 'Other', 'Fall', 'Texas');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20022, 'Other', 'Fall', 'Texas');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (5, 26007, 'Home Theatre', 'Spring', 'California');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (26007, 'Home Theatre', 'Spring', 'California');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (1, 20067, 'Home Theatre', 'Summer', 'Mississippi');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20067, 'Home Theatre', 'Summer', 'Mississippi');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (2, 11107, 'Computer', 'Winter', 'New York');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (11107, 'Computer', 'Winter', 'New York');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (3, 20890, 'Other', 'Fall', 'Alabama');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20890, 'Other', 'Fall', 'Alabama');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (4, 20456, 'Other', 'Spring', 'Texas');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (20456, 'Other', 'Spring', 'Texas');
 
-INSERT INTO SonicDB.inventory(store_number, item_id, product_category, season, region)
-VALUES (5, 32307, 'Home Theatre', 'Summer', 'Louisiana');
+INSERT INTO SonicDB.inventory(item_id, product_category, season, region)
+VALUES (32307, 'Home Theatre', 'Summer', 'Louisiana');
 
 
 

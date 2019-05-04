@@ -52,7 +52,6 @@ catch(PDOException $error)
     <tr>
     <th>Results:</th>
     </tr>
-<   /thead>
     <tbody>
         <?php foreach ($result as $row) { ?>
         <tr>
