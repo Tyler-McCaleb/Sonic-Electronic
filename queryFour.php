@@ -45,9 +45,9 @@ catch(PDOException $error)
 <!-- If there are results put them into a table -->
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Product ID's of the Top 2 Products Sold by Quantity:</h2>
-        <h3>Product Information</h3>
-        <table id="resultTable">
+        <h2 align="center">Product ID's of the Top 2 Products Sold by Quantity:</h2>
+        <h3 align="center">Product Information</h3>
+        <table id="resultTable" align="center">
             <tr>
                 <th id="resultHeader">ID</th>
                 <th id="resultHeader">Name</th>

@@ -11,11 +11,11 @@ require "config.php";
 try {
 $connection = new PDO("mysql:host=$host", $username, $password, $options);
 $sql = 'DROP DATABASE IF EXISTS ' . $dbname;
-$connection->exec($sql);
+$connection->exec($sql); ?>
 
-echo "$dbname and related tables were deleted successfully.";
+<h1 align="center"><?php echo "$dbname and related tables were deleted successfully.";?></h1>
 
-} catch(PDOException $error){
+<?php } catch(PDOException $error){
     echo $sql . "<br>" . $error->getMessage();
 }
 

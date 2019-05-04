@@ -42,8 +42,8 @@ catch(PDOException $error)
 
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Customer with the Highest Amount Spent</h2>
-        <table>
+        <h2 align="center">Customer with the Highest Amount Spent</h2>
+        <table align="center">
             <thead>
                 <tr>
                     <th>Customer Name</th>

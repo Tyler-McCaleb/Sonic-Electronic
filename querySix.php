@@ -42,13 +42,15 @@ catch(PDOException $error)
 <!-- If there are results put them into a table -->
 <?php
     if ($result && $statement->rowCount() > 0) { ?>
-        <h2>Products that were not delivered on time</h2>
-        <h3>Package Information</h3>
-        <table id="resultTable">
+        <h2 align="center">Products that were not delivered on time</h2>
+        <h3 align="center">Package Information</h3>
+        <table id="resultTable" align="center">
             <tr>
                 <th id="resultHeader">ID</th>
                 <th id="resultheader">Price</th>
                 <th id="resultHeader">Transaction #</th>
+                <th id="resultHeader">Due Date</th>
+                <th id="resultHeader">Receive Date</th>
             </tr>
             <?php foreach ($result as $row) { ?>
                 <tr>
@@ -60,6 +62,8 @@ catch(PDOException $error)
                     <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
                     <td id="resultData"><?php echo escape($row["price"]); ?></td>
                     <td id="resultData"><?php echo escape($row["transaction_number"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["due_date"]); ?></td>
+                    <td id="resultData"><?php echo escape($row["receive_date"]); ?></td>
                     <?php } ?>
                 </tr>
             <?php } ?>

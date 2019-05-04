@@ -11,11 +11,12 @@ require "config.php";
 try {
 $connection = new PDO("mysql:host=$host", $username, $password, $options);
 $sql = file_get_contents("data\init.sql");
-$connection->exec($sql);
+$connection->exec($sql); ?>
 
-echo "$dbname and related tables were created successfully";
 
-} catch(PDOException $error){
+<h1 align="center"><?php echo "$dbname and related tables were created successfully";?></h1>
+
+<?php } catch(PDOException $error){
     echo $sql . "<br>" . $error->getMessage();
 }
 ?>

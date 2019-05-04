@@ -151,8 +151,8 @@ try
         // Display The Old and New Information
         if ($customer && $statement->rowCount() > 0) 
         { ?>
-            <h3>Customer Information:</h3>
-            <table id="resultTable">
+            <h3 align="center">Customer Information:</h3>
+            <table id="resultTable" align="center">
                 <tr>
                     <th id="resultHeader">Name:</th>
                     <th id="resultHeader">Address:</th>
@@ -170,8 +170,8 @@ try
                 <?php } ?>
             </table>
 
-            <h3>Original Package Information:</h3>
-            <table id="resultTable">
+            <h3 align="center">Original Package Information:</h3>
+            <table id="resultTable" align="center">
                 <tr>
                     <th id="resultHeader">ID:</th>
                     <th id="resultHeader">Price:</th>
@@ -191,8 +191,8 @@ try
                 <?php } ?>
             </table>
 
-            <h3>New Package Information:</h3>
-            <table id="resultTable">
+            <h3 align="center">New Package Information:</h3>
+            <table id="resultTable" align="center">
                 <tr>
                     <th id="resultHeader">ID:</th>
                     <th id="resultHeader">Price:</th>
@@ -217,7 +217,7 @@ try
 <?php } else { ?>
         
         
-        <form method="post">
+        <form method="post" align="center">
 	    <label for="package_id"><strong>Enter Destroyed Package ID Number</strong></label>
             <input type="text" name="package_id" id="package_id">
 
@@ -236,8 +236,8 @@ try
 ?>
 
         <!-- Display all of the packages -->
-        <h3>All Package ID's</h3>
-        <table id="resultTable">
+        <h3 align="center">All Package ID's</h3>
+        <table id="resultTable" align="center">
             <?php foreach ($result as $row){ ?>
                 <tr>
                     <td id="resultData"><?php echo escape($row["package_id"]); ?></td>
