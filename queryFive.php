@@ -1,6 +1,10 @@
 
 <?php include "templates/header.php"; ?>
+<html>
+    
+<h2>Find the Products out-of-stock in California</h2>
 
+</html>
 <?php
 
 /*
@@ -16,7 +20,7 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the querery
-    $sql = "SELECT item_id, product_name, SUM(quantity), region
+    $sql = "SELECT item_id, product_name, quantity, region
             FROM product NATURAL JOIN inventory
             WHERE quantity = 0 AND region = 'California'
             GROUP BY item_id
@@ -52,16 +56,10 @@ catch(PDOException $error)
     <tbody>
         <?php foreach ($result as $row) { ?>
         <tr>
-        <?php
-            $due = new DateTime(escape($row["due_date"]));
-            $received = new DateTime(escape($row["receive_date"]));
-            ?>
-        <?php if ($received > $due) { ?>
         <td><?php echo escape($row["item_id"]); ?></td>
         <td><?php echo escape($row["product_name"]); ?></td>
         <td><?php echo escape($row["quantity"]); ?></td>
         <td><?php echo escape($row["region"]); ?></td>
-        <?php } ?>
         </tr>
         <?php } ?>
     </tbody>
