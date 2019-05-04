@@ -1,6 +1,8 @@
 
 <!-- Creates the database on the MySQL server based on the information stored in init.sql -->
 
+<?php include "templates/header.php"; ?>
+
 <?php
 
 
@@ -21,3 +23,4 @@ echo "$dbname and related tables were created successfully";
 <div>
     <?php include "templates/footer.php"; ?>
 </div>
+

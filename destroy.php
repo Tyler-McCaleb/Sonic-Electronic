@@ -1,6 +1,8 @@
 
 <!-- Destroys the database from the MySQL server -->
 
+<?php include "templates/header.php"; ?>
+
 <?php
 
 
