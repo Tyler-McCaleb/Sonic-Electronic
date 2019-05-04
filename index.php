@@ -2,7 +2,9 @@
 
 <html>
   <head>
+
       <link rel = "stylesheet" href = "css/style.css">
+      
     </head>
       
     <body>
@@ -51,8 +53,15 @@
   </li>
 </ul>
 
+
     <br><br>
-     
+    
+    
+    
+    
+      
+      
+      
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -144,6 +153,7 @@
 
     <br><br>
 
+
  <center>
 <table>
  
@@ -192,8 +202,8 @@
           <a>Terms and Conditions</a> | 
           <a>Privacy </a>| 
           <a>Interest-Based Ads </a>| 
-          <a>California Privacy Rights </a>| 
-          <a>CA Supply Chain Transparency Act</a>
+          <a>Privacy Rights </a>| 
+          <a>Supply Chain Transparency Act</a>
         </h5>
       
 <h6>Employees must maintain the confidentiality of intellectual property and all other confidential information that belongs to the Sonic Electronics.<br>
@@ -205,45 +215,6 @@
 <button class="btn"><i class="fab fa-pinterest"></i></button>
 <button class="btn"><i class="fab fa-facebook"></i></button><button class="btn"><i class="fab fa-twitter-square"></i></button>
     </div>
-    
-
-
-<h1>Database Controls</h1>
-<ul>
-    <li>
-        <a href="install.php">Create the Database</a>
-    </li>
-    <li>
-        <a href="destroy.php">Destroy the Database</a>
-    </li>
-</ul>
-
-
-<h2>Queries</h2>
-<ul>
-    <li>
-        <a href="queryOne.php"><strong>Query 1</strong></a>
-    </li>
-    <li>
-        <a href="queryTwo.php"><strong>Query 2</strong></a>
-    </li> 
-    <li>
-        <a href="queryThree.php"><strong>Query 3</strong></a>
-    </li>
-    <li>
-        <a href="queryFour.php"><strong>Query 4</strong></a>
-    </li>
-    <li>
-        <a href="queryFive.php"><strong>Query 5</strong></a>
-    </li>
-    <li>
-        <a href="querySix.php"><strong>Query 6</strong></a>
-    </li>
-    <li>
-        <a href="querySeven.php"><strong>Query 7</strong></a>
-    </li>
-</ul>
-     
 
 </body>
 </html>
