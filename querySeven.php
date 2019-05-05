@@ -1,6 +1,8 @@
 
 <?php include "templates/header.php"; ?>
-
+<head>
+   <link rel="stylesheet" href="css/style.css">
+</head>
 <?php
 
 /*
@@ -16,18 +18,14 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the querery
-    $sql = "SELECT c.name, SUM(p.price)
-    FROM customer NATURAL JOIN receives AS cr, package p, contents c
-    WHERE (cr.package_id = p.package_id AND cr.package_id = c.package_id);"
-            
+    $sql_email_price = "SELECT r.email, price
+    FROM package p, receives r
+    WHERE (p.package_id = r.package_id);";        
 
     // Prepare the statement
-    $statement = $connection->prepare($sql);
-    $statement->bindParam(':location', $location, PDO::PARAM_STR); // bind :location in the query to the variable $location  (Just an example to show binding parameter, may not be needed in actual code)
+    $statement = $connection->prepare($sql_email_price);
     $statement->execute();    // execute the statement
-
-    // save all the data from the statemet into the result
-    $result = $statement->fetchAll();
+    $email_price_result = $statement->fetchAll();
       
 } 
 
@@ -36,8 +34,22 @@ catch(PDOException $error)
     echo $sql . "<br>" . $error->getMessage();
 }
 
-?>
-
+    if($email_price_result && $statement->rowCount() >0) { ?>
+    <h2 align="center">Customer Bills</h2>
+    <h3 align="center">Bill Information</h3>
+    <table id="resultTable" align="center">
+        <tr>
+            <th id ="resultHeader">Account ID</th>
+            <th id="resultHeader">Bill Amount</th>
+        </tr>
+        <?php foreach ($email_price_result as $row) { ?>
+        <tr>
+            <td id="resultHeader"><?php echo escape($row["email"]); ?></td>
+            <td id="resultHeader"><?php echo escape($row["price"]); ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+<?php } ?>
 
 <?php include "templates/footer.php"; ?>
 
