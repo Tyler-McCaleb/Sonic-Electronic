@@ -5,14 +5,23 @@
 
 # Setup and Configuration
 Step 1. Download the XAMPP MySQL server. XAMPP download link: https://www.apachefriends.org/index.html
+
 Step 2. Download and unzip the Sonic-Electronic-master file folder
+
 Step 3. Navigate to you installed xampp and find the xampp folder
+
 Step 4. Open the xampp folder then look for the htdocs folder
+
 Step 5. Place the Sonic-Electronic-master folder in the htdocs folder
+
 Step 6. Run XAMPP and turn on the MySQL and Apache servers
+
 Step 7. Open a web browser. Place this link in the address bar: localhost/Sonic-Electronic-master/index.php
+
 Step 8. If all was setup correctly, you should see the Sonic Electronic home page
+
 Step 9. Scroll down and select Create Database
+
 Step 10. After creation, run all the queries to test by selecting the Query # you would like 
 
 # Sample Queries
