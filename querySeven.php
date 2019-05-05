@@ -16,9 +16,9 @@ try
     $connection = new PDO($dsn, $username, $password, $options);
 
     // create the querery
-    $sql = "SELECT 'desired information'
-    FROM 'table name'
-    WHERE 'conditions'"
+    $sql = "SELECT c.name, SUM(p.price)
+    FROM customer NATURAL JOIN receives AS cr, package p, contents c
+    WHERE (cr.package_id = p.package_id AND cr.package_id = c.package_id);"
             
 
     // Prepare the statement
