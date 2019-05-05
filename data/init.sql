@@ -478,7 +478,7 @@ VALUES (32307, 'Home Theatre', 'Summer', 'Louisiana');
   VALUES (20, 'supdawg@gmail.com');
   
   
-/* contents */
+/* Contents */
 INSERT INTO SonicDB.contents(package_id, item_id)
 VALUES (1, 20001);
 
