@@ -87,15 +87,7 @@ CREATE DATABASE IF NOT EXISTS SonicDB;
     FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id),
     FOREIGN KEY (manufacturer_id) REFERENCES SonicDB.manufacturer (manufacturer_id)
   );
-
-  CREATE TABLE SonicDB.contents(
-    package_id          INT(5) NOT NULL,
-    item_id             INT(5) NOT NULL,
-    PRIMARY KEY (package_id, item_id),
-    FOREIGN KEY (package_id) REFERENCES SonicDB.package (package_id),
-    FOREIGN KEY (item_id) REFERENCES SonicDB.product (item_id)
-  );
-  
+ 
   CREATE TABLE SonicDB.receives(
     package_id          INT(5) NOT NULL,
     email               VARCHAR(30) NOT NULL,
@@ -477,66 +469,3 @@ VALUES (32307, 'Home Theatre', 'Summer', 'Louisiana');
   INSERT INTO SonicDB.receives (package_id, email)
   VALUES (20, 'supdawg@gmail.com');
   
-  
-/* Contents */
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (1, 20001);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (2, 20002);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (3, 20003);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (4, 20004);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (5, 20005);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (6, 20006);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (7, 23637);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (8, 22427);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (9, 25407);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (10, 13007);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (11, 29897);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (12, 29997);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (13, 20078);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (14, 20022);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (15, 26007);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (16, 20067);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (17, 11107);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (18, 20890);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (19, 20456);
-
-INSERT INTO SonicDB.contents(package_id, item_id)
-VALUES (20, 32307);
-  
-
